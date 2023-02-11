@@ -289,10 +289,10 @@ bindsym $mod+Control+d mode ">> Drive Control"
 
 mode ">> Networks Controls" { 
 	# On
-	bindsym n exec rfkill unblock wlan | echo 1 > ~/.config/i3/wifi.conf
+	bindsym n exec rfkill unblock wlan #| echo 1 > ~/.config/i3/wifi.conf
 
 	# Off
-	bindsym f exec rfkill block wlan | echo 0 > ~/.config/i3/wifi.conf
+	bindsym f exec rfkill block wlan #| echo 0 > ~/.config/i3/wifi.conf
 
 	# Refresh
 	bindsym s exec iwctl station $(iwctl device list | grep station | awk '{print$1}') scan
