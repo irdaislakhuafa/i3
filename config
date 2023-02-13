@@ -216,8 +216,8 @@ mode ">> Set Brightness" {
 	bindsym $mod+Control+b mode "default"
 }
 bindsym $mod+Control+b mode ">> Set Brightness"
-# set screen brightness to 10%
-exec brightnessctl -d 'intel_backlight' set 20%
+# recover brightness
+exec brightnessctl -r
 
 # shortcut key control for multi monitor
 mode ">> Set Multi Monitor" {
@@ -494,7 +494,7 @@ for_window [class="feh"] floating enable
 for_window [class="scrcpy"] floating enable
 
 # alacritty
-#for_window [class="Alacritty"] floating enable height 10px
+#for_window [class="Alacritty"] floating enable shrink height 100px
 
 # about
 for_window [window_role="About"] floating enable
