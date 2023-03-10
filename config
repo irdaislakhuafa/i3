@@ -439,10 +439,10 @@ bindsym $mod+Shift+f exec rofi -show filebrowser
 bindsym $mod+Shift+w exec rofi -show window
 
 # for rounded
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 gaps inner 10
 gaps outer 0
-border_radius 10
+border_radius 4
 
 # start auto start
 exec_always --no-startup-id sh ~/.config/i3/autostart.sh
