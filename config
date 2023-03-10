@@ -478,7 +478,7 @@ bindsym $mod+Control+l exec i3lock -c "#2c3e50" -i "/media/My_Drive/My_Config/wa
 bindsym $mod+Control+Shift+c exec sh ~/.config/i3/scripts/camera.sh
 
 # open file manager
-bindsym $mod+Control+f exec io.elementary.files
+bindsym $mod+Control+f exec thunar
 
 # open onlyoffice
 bindsym $mod+Shift+o exec onlyoffice
