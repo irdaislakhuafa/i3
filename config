@@ -222,7 +222,7 @@ exec brightnessctl -r
 # shortcut key control for multi monitor
 mode ">> Set Multi Monitor" {
 	# set same as monitor
-	bindsym Shift+space exec xrandr --output HDMI-1 --auto --same-as eDP-1 && i3-msg restart 
+	bindsym Shift+space exec xrandr --output HDMI-1 --mode 1920x1080 --same-as eDP-1 && i3-msg restart 
 
 	# set monitor external to Right
 	bindsym Right exec xrandr --output HDMI-1 --auto --right-of eDP-1 && i3-msg restart 
@@ -335,7 +335,7 @@ mode ">> Music Player Control (MOCP)" {
 	# next
 	bindsym n exec mocp --next
 	# previous
-	binding Control+p exec mocp --previous
+	bindsym Control+p exec mocp --previous
 
 	# exit from Music Control
 	bindsym Return mode "default"
@@ -401,6 +401,19 @@ mode ">> Compositor" {
 }
 bindsym $mod+c mode ">> Compositor"
 
+mode ">> Window Manager Switch" {
+	# my default session in i3wm
+	bindsym i exec sv up slim
+
+	# my Hyprland session
+	bindsym h exec sv down slim && Hyprland
+
+	# exec
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+c mode "default"
+}
+bindsym $mod+Control+w mode ">> Window Manager Switch"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -439,10 +452,10 @@ bindsym $mod+Shift+f exec rofi -show filebrowser
 bindsym $mod+Shift+w exec rofi -show window
 
 # for rounded
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 gaps inner 10
 gaps outer 0
-border_radius 4
+border_radius 15
 
 # start auto start
 exec_always --no-startup-id sh ~/.config/i3/autostart.sh
@@ -462,6 +475,7 @@ bindsym $mod+Control+Down exec kbrightness decrease 1
 
 # start picom compositor
 #exec --no-startup-id picom
+#exec --no-startup-id xcompmgr
 
 # kill selected window
 #bindsym $mod+Control+x exec bash ~/.config/i3/xkill.sh
